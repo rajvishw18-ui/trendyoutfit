@@ -170,10 +170,9 @@
                         </div>
                         
                         <div class="mt-auto pt-4 border-t border-gray-100">
-                            <a id="modal-link" href="#" target="_blank" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-yellow-400 hover:bg-yellow-500 md:py-4 md:text-lg md:px-10 shadow-sm hover:shadow-lg transition-all">
-                                <i class="fab fa-amazon mr-2"></i> Buy on meesho
-                            </a>
-                            <p class="text-xs text-center text-gray-400 mt-3">Sold and shipped via meesho</p>
+                            <!-- Button will be populated via JS -->
+                            <a id="modal-link" href="#" target="_blank" class=""></a>
+                            <p class="text-xs text-center text-gray-400 mt-3">Sold and shipped via Merchant</p>
                         </div>
                     </div>
                 </div>
@@ -184,16 +183,21 @@
     <!-- JavaScript logic -->
     <script>
         // --- Product Data ---
+        // YOU CAN EDIT THE BUTTONS HERE
         const products = [
             // Women's Fashion
             {
                 id: 1,
-                name: "Women Dress Lycra",
+                name: "Summer Floral Maxi Dress",
                 price: 49.99,
                 category: "women",
-                image: "printrest images/image (1).jpg",
-                description: "Fabric: Lycra Sleeve Length: Long Sleeves Pattern: Solid.",
-                link: "https://www.meesho.com/s/p/6xeuq5?product_id=418917389&af_force_deeplink=true&host_internal=single_product&pid=meesho_affiliate_portal&is_retargeting=true&af_click_lookback=7d&product_name=product&utm_source=instagram_stories&external_product_id=6xeuq5&af_reengagement_window=14d&c=528455654:instagram_stories:1705766"
+                image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Lightweight, breathable fabric perfect for summer days. Features a beautiful floral print and a flattering wrap design.",
+                link: "https://www.amazon.com/s?k=floral+maxi+dress",
+                // Custom Button Options:
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on meesho",
+                buttonIcon: "fas fa-shopping-cart"
             },
             {
                 id: 2,
@@ -202,7 +206,10 @@
                 category: "women",
                 image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Premium vegan leather tote bag with ample storage. Includes a matching pouch and gold-tone hardware.",
-                link: "https://www.amazon.com/s?k=leather+tote+bag"
+                link: "https://www.amazon.com/s?k=leather+tote+bag",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
             {
                 id: 3,
@@ -211,7 +218,10 @@
                 category: "women",
                 image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Vintage-inspired high-waist jeans with a relaxed fit. Made from sustainable cotton denim.",
-                link: "https://www.amazon.com/s?k=high+waist+jeans"
+                link: "https://www.amazon.com/s?k=high+waist+jeans",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
             
             // Men's Fashion
@@ -222,7 +232,10 @@
                 category: "men",
                 image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "A sleek bomber jacket for the modern man. Water-resistant outer shell with a comfortable quilted lining.",
-                link: "https://www.amazon.com/s?k=mens+bomber+jacket"
+                link: "https://www.amazon.com/s?k=mens+bomber+jacket",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
             {
                 id: 5,
@@ -231,7 +244,11 @@
                 category: "men",
                 image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Stainless steel case with a genuine leather strap. Features a precision quartz movement and water resistance.",
-                link: "https://www.amazon.com/s?k=mens+watch"
+                link: "https://www.amazon.com/s?k=mens+watch",
+                // EXAMPLE: CUSTOM BLACK BUTTON
+                buttonColor: "bg-gray-900 hover:bg-black",
+                buttonText: "Buy Luxury",
+                buttonIcon: "fas fa-gem"
             },
             {
                 id: 6,
@@ -240,7 +257,11 @@
                 category: "men",
                 image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Versatile low-top sneakers perfect for daily wear. Durable canvas upper with a cushioned rubber sole.",
-                link: "https://www.amazon.com/s?k=mens+canvas+sneakers"
+                link: "https://www.amazon.com/s?k=mens+canvas+sneakers",
+                // EXAMPLE: CUSTOM BLUE BUTTON
+                buttonColor: "bg-blue-600 hover:bg-blue-700",
+                buttonText: "Buy Now",
+                buttonIcon: "fas fa-shopping-cart"
             },
 
             // Accessories
@@ -251,7 +272,10 @@
                 category: "accessories",
                 image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Vintage-inspired round frames with UV400 protection lenses. Adds a cool touch to any outfit.",
-                link: "https://www.amazon.com/s?k=round+sunglasses"
+                link: "https://www.amazon.com/s?k=round+sunglasses",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
             {
                 id: 8,
@@ -260,7 +284,10 @@
                 category: "accessories",
                 image: "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Soft and warm wool blend scarf. Generous length allows for multiple wrapping styles.",
-                link: "https://www.amazon.com/s?k=wool+scarf"
+                link: "https://www.amazon.com/s?k=wool+scarf",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
             {
                 id: 9,
@@ -269,7 +296,10 @@
                 category: "accessories",
                 image: "https://images.unsplash.com/photo-1627123424574-724758594e93?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Slim bifold wallet made from full-grain leather. RFID blocking technology keeps your cards safe.",
-                link: "https://www.amazon.com/s?k=leather+wallet"
+                link: "https://www.amazon.com/s?k=leather+wallet",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
 
             // Home Decor
@@ -280,7 +310,10 @@
                 category: "home",
                 image: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Minimalist ceramic vase with a matte finish. Perfect for dried flowers or as a standalone sculptural piece.",
-                link: "https://www.amazon.com/s?k=ceramic+vase"
+                link: "https://www.amazon.com/s?k=ceramic+vase",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
             {
                 id: 11,
@@ -289,7 +322,10 @@
                 category: "home",
                 image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Luxurious velvet throw pillow cover. Adds texture and a pop of color to your living room sofa.",
-                link: "https://www.amazon.com/s?k=velvet+pillow"
+                link: "https://www.amazon.com/s?k=velvet+pillow",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             },
             {
                 id: 12,
@@ -298,7 +334,10 @@
                 category: "home",
                 image: "https://images.unsplash.com/photo-1507473888900-52e1adad5420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 description: "Adjustable metal desk lamp with an antique brass finish. Provides focused lighting for your workspace.",
-                link: "https://www.amazon.com/s?k=desk+lamp"
+                link: "https://www.amazon.com/s?k=desk+lamp",
+                buttonColor: "bg-yellow-400 hover:bg-yellow-500",
+                buttonText: "Buy on Amazon",
+                buttonIcon: "fab fa-amazon"
             }
         ];
 
@@ -402,12 +441,25 @@
             const mLink = document.getElementById('modal-link');
             const mCat = document.getElementById('modal-category');
 
+            // 1. Set Content
             mTitle.textContent = product.name;
             mPrice.textContent = formatCurrency(product.price);
             mDesc.textContent = product.description;
             mImg.src = product.image;
             mLink.href = product.link;
             mCat.textContent = getCategoryName(product.category);
+
+            // 2. Set Button Style Dynamically
+            const baseClasses = "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white shadow-sm hover:shadow-lg transition-all md:py-4 md:text-lg md:px-10";
+            
+            // Get values from product or use defaults
+            const colorClass = product.buttonColor || "bg-yellow-400 hover:bg-yellow-500";
+            const btnText = product.buttonText || "Buy on Amazon";
+            const btnIcon = product.buttonIcon || "fab fa-amazon";
+
+            // Apply classes and HTML
+            mLink.className = `${baseClasses} ${colorClass}`;
+            mLink.innerHTML = `<i class="${btnIcon} mr-2"></i> ${btnText}`;
 
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
@@ -431,6 +483,4 @@
         });
     </script>
 </body>
-
 </html>
-
